@@ -1,119 +1,241 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from '@/components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <div id="app" style="height: 100%">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <NavBar class="nav-bar" id="navBar"></NavBar>
+    <router-view v-slot="{Component, route}" id="page-content">
+    <transition :name="route.meta.transition" mode="out-in">
+      <component :is="Component"></component>
+    </transition>
+    </router-view>
+  </div>
 </template>
 
-<style>
-@import '@/assets/base.css';
+<script>
+import NavBar from "./components/NavBar.vue";
+// import Footer from "./components/Footer.vue";
+
+export default {
+  name: "App",
+  components: {
+    NavBar,
+    // Footer,
+  },
+};
+</script>
+
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+  --mainblue: #063358;
+  --brightblue:#0E73C6;
+  --darkblue: #063358;
+  --darkbackground: #01070C;
+  --background: #042037;
+  --libackground: #73BBF5;
+  --accent2: #ff6b35;
+  --gray: #384558;
+  --darkgray: #292929;
+  --white: #ecf7ff;
+  --error: #e27373;
+
+  --screen-size: calc(100vh - 60px);
+  --nav-bar-height: 60px;
+
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--white);
+}
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+  font-family: 'IBM Plex Sans', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--background);
 }
 
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+#page-content {
+  height: calc(100% - var(--nav-bar-height));
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+#page-content::-webkit-scrollbar {
+  width: 0.75rem;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+#page-content::-webkit-scrollbar-track {
+  background: #1e1e24;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+#page-content::-webkit-scrollbar-thumb {
+  background: var(--white);
+}
+.nav-bar {
+  z-index: 100;
 }
 
-nav {
+body,
+html {
+  margin: 0;
+  height: 100vh;
   width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+body {
+  background: var(--background);
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+h1 {
+  font-size: 6.5rem;
+  font-weight: lighter;
+  letter-spacing: -1.5px;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+h2 {
+  font-size: 4rem;
+  font-weight: normal;
+  letter-spacing: -0.5px;
 }
 
-nav a:first-of-type {
-  border: 0;
+h3 {
+  font-size: 3.25rem;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+h4 {
+  font-size: 2.3rem;
+  letter-spacing: 0.25px;
 }
+
+h5 {
+  font-size: 1.625rem;
+}
+
+h6 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: 0.15px;
+}
+
+p {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+li {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+button {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 1.25px;
+}
+
+.button {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 1.25px;
+}
+
+label {
+  font-size: 1.1rem;
+}
+
+input,
+textarea {
+  font-size: 1rem;
+  color: var(--gray);
+}
+
+.error {
+  color: var(--error);
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.slide-to-side-enter-active,
+.slide-to-side-leave-active {
+  transition:opacity 0.5s;
+}
+
+.slide-to-side-enter-from,
+.slide-to-side-leave-to {
+  opacity: 0;
+}
+
+
+.page-wrapper {
+  height: var(--screen-size);
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.section {
+    padding: 50px;
+    width: 100%;
+}
+
+@media (max-height: 800px), (max-width: 750px) {
+  :root {
+    font-size: 14px;
+  }
+
+  #page-content::-webkit-scrollbar {
+  width: 0.5rem;
+  }
+
+
+.page-wrapper {
+  height: 100%;
+  scroll-snap-type:initial;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 30px;
+}
+
+}
+
+
 </style>
