@@ -42,6 +42,8 @@ export default {
   --white: #ecf7ff;
   --error: #e27373;
 
+  --lightshadow: #47474765;
+
   --screen-size: calc(100vh - 60px);
   --nav-bar-height: 60px;
 
