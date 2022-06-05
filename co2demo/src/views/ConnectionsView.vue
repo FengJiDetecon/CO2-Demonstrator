@@ -3,71 +3,29 @@
     <div class="content-container">
       <h3 class="page-title">Data Spaces and Connections History</h3>
 
-      <div class="subsection-container">
-        <h3 class="dataspace-title">Connections history</h3>
-
-        <div class="history-row">
-          <p> <span class="bold">Datetime: </span>22.07.2 13:21:12</p>
-          <p><span class="bold">Dataspace: </span>Continental Manufacturing Bohn</p>
-          <p> <span class="bold">Number of transactions: </span>2</p>
+        <div class="window-links">
+        
+        <router-link class="link" to="/connections-history">
+        <div class="link-button">
+        Connections History
         </div>
-
-        <div class="history-row">
-          <p> <span class="bold">Datetime: </span>22.07.2 13:21:12</p>
-          <p><span class="bold">Dataspace: </span>Continental Manufacturing Bohn</p>
-          <p> <span class="bold">Number of transactions: </span>2</p>
+        </router-link>
+        
+        
+        <router-link class="link" to="/dataspaces-overview">
+        <div class="link-button">Dataspaces Overview
         </div>
+        </router-link>
+        
+        </div>  
 
-        <div class="history-row">
-          <p> <span class="bold">Datetime: </span>22.07.2 13:21:12</p>
-          <p><span class="bold">Dataspace: </span>Continental Manufacturing Bohn</p>
-          <p> <span class="bold">Number of transactions: </span>2</p>
-        </div>
 
-        <div class="history-row">
-          <p> <span class="bold">Datetime: </span>22.07.2 13:21:12</p>
-          <p><span class="bold">Dataspace: </span>Continental Manufacturing Bohn</p>
-          <p> <span class="bold">Number of transactions: </span>2</p>
-        </div>
+        <router-view v-slot="{ Component, route }" id="page-content">
+          <transition :name="route.meta.transition" mode="out-in">
+            <component :is="Component"></component>
+          </transition>
+        </router-view>
 
-        <div class="history-row">
-          <p> <span class="bold">Datetime: </span>22.07.2 13:21:12</p>
-          <p><span class="bold">Dataspace: </span>Continental Manufacturing Bohn</p>
-          <p> <span class="bold">Number of transactions: </span>2</p>
-        </div>
-
-        <div class="history-row">
-          <p> <span class="bold">Datetime: </span>22.07.2 13:21:12</p>
-          <p><span class="bold">Dataspace: </span>Continental Manufacturing Bohn</p>
-          <p> <span class="bold">Number of transactions: </span>2</p>
-        </div>
-
-        <div class="history-row">
-          <p> <span class="bold">Datetime: </span>22.07.2 13:21:12</p>
-          <p><span class="bold">Dataspace: </span>Continental Manufacturing Bohn</p>
-          <p> <span class="bold">Number of transactions: </span>2</p>
-        </div>
-
-        <div class="history-row">
-          <p> <span class="bold">Datetime: </span>22.07.2 13:21:12</p>
-          <p><span class="bold">Dataspace: </span>Continental Manufacturing Bohn</p>
-          <p> <span class="bold">Number of transactions: </span>2</p>
-        </div>
-
-      </div>
-
-      
-
-      <div class="subsection-container">
-        <h3 class="dataspace-title">Dataspaces</h3>
-
-        <div class="owner-row">
-          <p>Dataspace:</p>
-          <p>Owner:</p>
-          <p>Last access:</p>
-          <p>Contact:</p>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -76,6 +34,7 @@
 .page-wrapper {
   background: var(--white);
   padding: 40px;
+  height: 100%;
 }
 
 .content-container {
@@ -91,38 +50,32 @@
 }
 
 * {
-    color: var(--background);
+  color: var(--background);
 }
 
-.dataspace-title {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+.window-links {
+  display: flex;
+  column-gap: 10px;
+  border-bottom: 1px solid var(--background);
 }
 
-.subsection-container {
-    max-height: 600px;
-    height: fit-content;
-    overflow-y: auto;
-    margin: 0 20px;
+.link-button {
+  text-decoration: none;
+  background-color: var(--background);
+  color: var(--white);
+  padding: 10px 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
-.history-row {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid var(--gray);
+.link-button:hover {
+  background: var(--libackground);
+  transition: all linear 0.2s;
 }
 
-.history-row p {
-    margin: 5px 0;
+.link {
+  text-decoration: none;
 }
-
-.bold {
-    font-weight: 600;
-}
-
 
 
 </style>
