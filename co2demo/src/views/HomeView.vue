@@ -28,6 +28,7 @@
   max-width: 1000px;
   background-color: var(--white);
   border-radius: 15px;
+  box-shadow: 4px 4px 5px 5px var(--darkbackground);
 }
 
 .dashboard-title {

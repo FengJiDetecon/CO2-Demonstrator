@@ -75,7 +75,7 @@ export default {
 }
 
 #page-content::-webkit-scrollbar-thumb {
-  background: var(--white);
+  background: var(--libackground);
 }
 .nav-bar {
   z-index: 100;

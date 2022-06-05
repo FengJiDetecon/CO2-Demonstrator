@@ -4,7 +4,7 @@
     <div class="row-container">
       <div class="existing-component">
         <img class="component-image" src="../../../assets/tyre-single.jpg">
-        <p class="component-title">Tyre Model: 3213</p>
+        <p class="component-title">Tyre 245/35 r18</p>
         <p class="see-more">
           see more <span class="material-icons arrow-right"> arrow_right </span>
         </p>
