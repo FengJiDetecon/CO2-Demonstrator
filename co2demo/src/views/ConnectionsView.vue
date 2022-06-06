@@ -3,42 +3,42 @@
     <div class="content-container">
       <h3 class="page-title">Data Spaces and Connections History</h3>
 
-        <div class="window-links">
-        
-        <router-link class="link" to="/connections-history">
-        <div class="link-button">
-        Connections History
-        </div>
+      <div class="window-links">
+        <router-link class="link" to="connections-history">
+          <div class="link-button">Connections History</div>
         </router-link>
-        
-        
-        <router-link class="link" to="/dataspaces-overview">
-        <div class="link-button">Dataspaces Overview
-        </div>
+
+        <router-link class="link" to="dataspaces-overview">
+          <div class="link-button">Dataspaces Overview</div>
         </router-link>
-        
-        </div>  
+      </div>
 
-
-        <router-view v-slot="{ Component, route }" id="page-content">
-          <transition :name="route.meta.transition" mode="out-in">
-            <component :is="Component"></component>
-          </transition>
-        </router-view>
-
+      <router-view class="viewer" v-slot="{ Component, route }" id="page-content">
+        <transition :name="route.meta.transition" mode="out-in">
+          <component :is="Component"></component>
+        </transition>
+      </router-view>
     </div>
+
+    <div class="spacer-bottom"></div>
+
   </div>
 </template>
 
 <style scoped>
-.page-wrapper {
-  background: var(--white);
-  padding: 40px;
+
+.viewer {
   height: 100%;
 }
 
+.page-wrapper {
+  background: var(--white);
+  padding: 40px;
+  height: 100vh;
+}
+
 .content-container {
-  height: 100%;
+  height: 100vh;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -76,6 +76,4 @@
 .link {
   text-decoration: none;
 }
-
-
 </style>

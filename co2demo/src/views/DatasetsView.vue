@@ -1,49 +1,15 @@
 <template>
   <div class="page-wrapper">
     <div class="content-container">
-      <h3 class="page-title">Connected Datasets</h3>
+      
+      <router-view v-slot="{ Component, route }" id="page-content">
+          <transition :name="route.meta.transition" mode="out-in">
+            <component :is="Component"></component>
+          </transition>
+        </router-view>
 
-      <div class="datasets-column">
-        <div class="dataset-wrapper">
-          <div class="description-area">
-            <h3 class="dataset-title">Co2 Tracking</h3>
-            <p class="dataset-description">Owner: <span></span></p>
-            <p class="dataset-description">Last update:</p>
-          </div>
-
-          <div class="buttons-area">
-            <div class="dataset-button">View Data</div>
-            <div class="dataset-button">Details</div>
-          </div>
-        </div>
-
-        <div class="dataset-wrapper">
-          <div class="description-area">
-            <h3 class="dataset-title">Co2 Tracking</h3>
-            <p class="dataset-description">Owner: <span></span></p>
-            <p class="dataset-description">Last update:</p>
-          </div>
-
-          <div class="buttons-area">
-            <div class="dataset-button">View Data</div>
-            <div class="dataset-button">Details</div>
-          </div>
-        </div>
-
-        <div class="dataset-wrapper">
-          <div class="description-area">
-            <h3 class="dataset-title">Co2 Tracking</h3>
-            <p class="dataset-description">Owner: <span></span></p>
-            <p class="dataset-description">Last update:</p>
-          </div>
-
-          <div class="buttons-area">
-            <div class="dataset-button">View Data</div>
-            <div class="dataset-button">Details</div>
-          </div>
-        </div>
-      </div>
     </div>
+        <div class="spacer-bottom"></div>
   </div>
 </template>
 

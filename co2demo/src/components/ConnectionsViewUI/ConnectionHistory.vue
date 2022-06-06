@@ -128,7 +128,6 @@
 
 .subsection-wrapper {
     height: 100%;
-    margin-bottom: 100px;    
 }
 
 * {
@@ -145,6 +144,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 15px;
+    height: 100%;
 }
 
 .history-row {
@@ -153,6 +153,7 @@
     padding: 15px;
     box-shadow: 2px 2px 2px 2px var(--lightshadow);
     border-radius: 5px;
+    height: fit-content;
 }
 
 .history-row p {
@@ -164,7 +165,7 @@
 }
 
 .spacer-bottom {
-    height: 50px;
+  height: 1400px;
 }
 
 

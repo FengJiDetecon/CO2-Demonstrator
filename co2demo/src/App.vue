@@ -159,6 +159,14 @@ textarea {
   color: var(--error);
 }
 
+.bold {
+    font-weight: 600;
+}
+
+.spacer-bottom {
+    height: 100px;
+}
+
 /* Rules for sizing the icon. */
 .material-icons.md-18 {
   font-size: 18px;
