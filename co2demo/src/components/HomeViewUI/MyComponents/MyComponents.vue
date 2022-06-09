@@ -6,7 +6,7 @@
       <div class="existing-component">
         <img class="component-image" src="../../../assets/tyre-single.jpg">
         <div class="component-text">
-        <p class="component-title">Tyre 245/35 r18</p>
+        <p class="component-title">Tyre 206/55 r16</p>
         <p class="component-description">CO2 Emissions tracking during the tyre's lifecycle</p>
         <p class="see-more">
           see more <span class="material-icons arrow-right"> arrow_right </span>
