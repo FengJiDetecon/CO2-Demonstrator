@@ -1,8 +1,8 @@
 <template>
   <div class="navbar-container">
     <div>
-      <router-link to="/">
-      <img src=".././assets/Branding/parasol-logo-yellow.png" class="logo" alt="parasol-logo-navbar" />
+      <router-link class="logo-router" to="/">
+      <h3 class="logo-text">SEE-O2 MONITOR</h3>
       </router-link>
     </div>
     <div class="tabs-desktop">
@@ -67,6 +67,16 @@ export default {
 .logo {
   width: 200px;
   grid-area: 'logo';
+}
+
+.logo-text {
+  font-size: 1rem;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.logo-router {
+  text-decoration: none;
 }
 
 .tabs-desktop {

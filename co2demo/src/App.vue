@@ -42,6 +42,8 @@ export default {
   --white: #ecf7ff;
   --error: #e27373;
 
+  --lightshadow: #47474765;
+
   --screen-size: calc(100vh - 60px);
   --nav-bar-height: 60px;
 
@@ -73,7 +75,7 @@ export default {
 }
 
 #page-content::-webkit-scrollbar-thumb {
-  background: var(--white);
+  background: var(--libackground);
 }
 .nav-bar {
   z-index: 100;
@@ -155,6 +157,14 @@ textarea {
 
 .error {
   color: var(--error);
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.spacer-bottom {
+    height: 100px;
 }
 
 /* Rules for sizing the icon. */
