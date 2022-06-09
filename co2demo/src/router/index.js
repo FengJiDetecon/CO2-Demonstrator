@@ -8,6 +8,7 @@ import DataspacesOverview from '../components/ConnectionsViewUI/DataspacesOvervi
 import DataDetails from '../components/DatasetsViewUI/DataDetails.vue'
 import ConnectedDatasets from '../components/DatasetsViewUI/ConnectedDatasets.vue'
 import DataOverview from '../components/DatasetsViewUI/DataOverview.vue'
+import DataDashboard from '../components/HomeViewUI/DataDashboard.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,11 @@ const router = createRouter({
           path: "mycomponents",
           component: MyComponents,
           name: MyComponents,
+        },
+        {
+          path: "dashboard",
+          component: DataDashboard,
+          name: DataDashboard,
         },
       ],
     },
