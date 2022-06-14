@@ -43,6 +43,8 @@ export default {
   --error: #e27373;
 
   --lightshadow: #47474765;
+  --lightershadow: #a0a0a065;
+  --pure-white: #ffffff;
 
   --screen-size: calc(100vh - 60px);
   --nav-bar-height: 60px;

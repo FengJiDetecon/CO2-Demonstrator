@@ -1,5 +1,6 @@
 <template>
   <div class="component-wrapper">
+    <h3 class="graph-title">CO2e Emissions (%) per Tyre</h3>
     <div id="tester" ref="emissionsPct" class="donut-chart"></div>
   </div>
 </template>
@@ -31,34 +32,30 @@ export default {
       },
     ];
 
-    var layout = {
-      title: "Global Emissions 1990-2011",
-      annotations: [
-        {
-          font: {
-            size: 20,
-          },
-          showarrow: false,
-          text: "CO2",
-          x: 0,
-          y: 0,
-        },
-      ],
-      height: 400,
-      width: 600,
-      showlegend: false,
-    };
+    var layout ='';
 
-    Plotly.newPlot(this.$refs.emissionsPct, data, layout);
+    Plotly.newPlot(this.$refs.emissionsPct, data, layout, {displaylogo: false, responsive:true});
   },
 };
 </script>
 
 <style scoped>
 
+.graph-title {
+  text-align: center;
+  color: var(--mainblue);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .component-wrapper {
   width: 100%;
   margin: 50px auto;
+  background-color: var(--pure-white);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 4px 1px var(--lightershadow);
 }
 
 

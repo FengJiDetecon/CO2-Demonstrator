@@ -151,7 +151,8 @@
     display: grid;
     grid-template-columns: 50% 50%;
     padding: 15px;
-    box-shadow: 2px 2px 2px 2px var(--lightshadow);
+    background-color: #ffffff;
+    box-shadow: 2px 2px 2px 2px var(--lightershadow);
     border-radius: 5px;
     height: fit-content;
 }

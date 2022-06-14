@@ -1,5 +1,6 @@
 <template>
     <div class="component-wrapper">
+    <h3 class="graph-title">Merged Files</h3>
     <div id="tester" ref="fileTable" class="table"></div>
 
 </div>
@@ -38,19 +39,32 @@ var data = [{
   }
 }]
 
-Plotly.newPlot(this.$refs.fileTable, data);
+ var layout ='';
+
+Plotly.newPlot(this.$refs.fileTable, data, layout, {displaylogo: false, responsive:true});
 
 }
 }
 </script>
 
 <style scoped>
+
+.graph-title {
+  text-align: center;
+  color: var(--mainblue);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
  
 .component-wrapper {
   width: 100%;
   margin: 50px auto;
+  background-color: var(--pure-white);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 4px 1px var(--lightershadow);
 }
-
 
 .table {
   width: 100%;

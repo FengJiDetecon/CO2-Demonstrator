@@ -8,6 +8,7 @@
         <h3 class="window-title">CO2 Emissions Visualization Tools</h3>
 
         <div class="graph-wrapper">
+        <summary-chart></summary-chart>
         <bar-chart></bar-chart>
         <donut-chart></donut-chart>
         <file-table></file-table>
@@ -20,6 +21,7 @@
 import BarChart from '../DashboardCharts/BarChart.vue'
 import DonutChart from '../DashboardCharts/DonutChart.vue'
 import FileTable from '../DashboardCharts/FileTable.vue'
+import SummaryChart from '../DashboardCharts/SummaryChart.vue'
 
 
 export default {
@@ -27,7 +29,8 @@ export default {
   components: {
     DonutChart,
     BarChart,
-    FileTable
+    FileTable,
+    SummaryChart
   },
   methods: {
     backButton() {
