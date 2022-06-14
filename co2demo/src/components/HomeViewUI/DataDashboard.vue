@@ -8,10 +8,10 @@
         <h3 class="window-title">CO2 Emissions Visualization Tools</h3>
 
         <div class="graph-wrapper">
-        <summary-chart></summary-chart>
-        <bar-chart></bar-chart>
-        <donut-chart></donut-chart>
-        <file-table></file-table>
+        <summary-chart v-if="datajson" :co2data="datajson" ></summary-chart>
+        <bar-chart v-if="datajson" :co2data="datajson"></bar-chart>
+        <donut-chart v-if="datajson" :co2data="datajson"></donut-chart>
+        <file-table v-if="datajson" :co2data="datajson"></file-table>
         </div>
 
     </div>
@@ -32,10 +32,23 @@ export default {
     FileTable,
     SummaryChart
   },
+  data() {
+    return {
+      datajson: null,
+    }
+  },
   methods: {
     backButton() {
       return this.$router.go(-1);
     },
+  },
+  created() {
+    fetch('http://localhost:8000/').then(data => {
+      return data.json()
+    }).then (datajson => {
+      console.log(datajson)
+      this.datajson = datajson
+    })
   },
 };
 

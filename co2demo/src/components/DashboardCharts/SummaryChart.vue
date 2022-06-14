@@ -4,36 +4,47 @@
 
     <div class="content-layout">
     <div class="profile-info">
-    <h3 class="component-title">Tyre 206/55 r16</h3>
     <img class="component-image" src="../../assets/tyre-single.jpg" alt="tyre-image">
+    <h3 class="component-title">Tyre 206/55 r16</h3>
     </div>
 
     <div class="indicators-container">
     <div class="indicator-container">
       <div class="indicator-title">Total CO2e Emissions per Tyre </div>
-      <div class="indicator-number">123 kg</div>
+      <div class="indicator-number">{{co2data.total_emissions['CO2e Emissions (kg) per Tyre']}} kg</div>
     </div>
     <div class="indicator-container">
       <div class="indicator-title">Material CO2e Emissions per Tyre </div>
-      <div class="indicator-number">43 kg</div>
+      <div class="indicator-number">{{co2data.total_material_emissions['CO2e Emissions (kg) per Tyre']}} kg</div>
     </div>
      <div class="indicator-container">
       <div class="indicator-title">Manufacturing Processes CO2e Emissions per Tyre </div>
-      <div class="indicator-number">80 kg</div>
+      <div class="indicator-number">{{co2data.total_process_emissions['CO2e Emissions (kg) per Tyre']}} kg</div>
     </div>
     <div class="indicator-container">
       <div class="indicator-title">Highest Material CO2e Contributor </div>
-      <div class="indicator-number">Rubbber</div>
+      <div class="indicator-number">{{co2data.max_material['Section']}}</div>
     </div>
     <div class="indicator-container">
       <div class="indicator-title">Highest Process CO2e Contributor </div>
-      <div class="indicator-number">Calendering</div>
+      <div class="indicator-number">{{co2data.max_process['Section']}}</div>
     </div>
     </div>
     </div>
     
   </div>
 </template>
+
+<script>
+
+export default {
+  props: [
+    "co2data"
+  ],
+}
+</script>
+
+
 
 
 <style scoped>
@@ -54,15 +65,23 @@
   box-shadow: 3px 3px 4px 1px var(--lightshadow);
 }
 
+.profile-info {
+  background-color: var(--pure-white);
+  border-radius: 5px;
+}
+
 .component-image {
     width: 100%;
     object-fit: contain;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .component-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     letter-spacing: 1.5px;
+    margin: 10px 10px;
+    text-align: center;
+    color: var(--background);
 }
 
 .content-layout {
@@ -70,6 +89,7 @@
     grid-template-columns: 30% 70%;
     column-gap: 30px;
 }
+
 
 .indicators-container {
     display: flex;
@@ -82,7 +102,6 @@
 
 .indicator-container {
   background-color: var(--pure-white);
-  box-shadow: 2px 2px 3px 2px var(--darkbackground);
   border-radius: 15px;
   display: flex;
   width: fit-content;

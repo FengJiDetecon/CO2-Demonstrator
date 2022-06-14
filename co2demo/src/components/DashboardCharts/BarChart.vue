@@ -9,11 +9,16 @@
 import Plotly from "plotly.js-dist";
 
 export default {
+   props: [
+    "co2data"
+  ],
   mounted() {
+    const emissionsX = Object.values(this.co2data.emissions['Section'])
+    const emissionsY = Object.values(this.co2data.emissions['CO2e Emissions (kg) per Tyre'])
     var data = [
       {
-        x: ["giraffes", "orangutans", "monkeys"],
-        y: [20, 14, 23],
+        x: emissionsX,
+        y: emissionsY,
         type: "bar",
       },
     ];

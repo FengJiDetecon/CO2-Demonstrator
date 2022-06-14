@@ -1,7 +1,7 @@
 <template>
-  <div class="component-wrapper">
+  <div class="component-wrapper" id="donut-chart">
     <h3 class="graph-title">CO2e Emissions (%) per Tyre</h3>
-    <div id="tester" ref="emissionsPct" class="donut-chart"></div>
+    <div id="testerb" ref="emissionsPct" class="donut-chart"></div>
   </div>
 </template>
 
@@ -9,30 +9,31 @@
 import Plotly from "plotly.js-dist";
 
 export default {
+   props: [
+    "co2data"
+  ],
+
   mounted() {
+
+    const labelsY = Object.values(this.co2data.emissions_pct['Section'])
+    const valuesX = Object.values(this.co2data.emissions_pct['CO2e Emissions (%) per Tyre'])
+
     var data = [
       {
-        values: [27, 11, 25, 8, 1, 3, 25],
-        labels: [
-          "US",
-          "China",
-          "European Union",
-          "Russian Federation",
-          "Brazil",
-          "India",
-          "Rest of World",
-        ],
-        text: "CO2",
-        textposition: "inside",
-        domain: { column: 1 },
-        name: "CO2 Emissions",
-        hoverinfo: "label+percent+name",
-        hole: 0.4,
+        labels: labelsY,
+        values: valuesX,
+        // text: "CO2",
+        // textposition: "inside",
+    
+        // name: "CO2 Emissions",
+        // hoverinfo: "label+percent+name",
+        // hole: 0.4,
         type: "pie",
       },
     ];
 
-    var layout ='';
+    var layout = ''
+
 
     Plotly.newPlot(this.$refs.emissionsPct, data, layout, {displaylogo: false, responsive:true});
   },

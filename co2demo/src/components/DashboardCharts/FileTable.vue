@@ -1,6 +1,6 @@
 <template>
     <div class="component-wrapper">
-    <h3 class="graph-title">Merged Files</h3>
+    <h3 class="graph-title">Merged Dataset</h3>
     <div id="tester" ref="fileTable" class="table"></div>
 
 </div>
@@ -11,20 +11,21 @@ import Plotly from 'plotly.js-dist'
 
 export default {
 
-    mounted() {
+props: [
+    "co2data"
+  ],
 
-var values = [
-      ['Salaries', 'Office', 'Merchandise', 'Legal', '<b>TOTAL</b>'],
-      [1200000, 20000, 80000, 2000, 12120000],
-      [1300000, 20000, 70000, 2000, 130902000],
-      [1300000, 20000, 120000, 2000, 131222000],
-      [1400000, 20000, 90000, 2000, 14102000]]
+mounted() {
+
+const valuesx = Object.values(this.co2data.file_dataFrame)
+const values  = Object.values(valuesx)
+var headers = Object.keys(this.co2data.file_dataFrame)
+console.log(values)
 
 var data = [{
   type: 'table',
   header: {
-    values: [["<b>EXPENSES</b>"], ["<b>Q1</b>"],
-				["<b>Q2</b>"], ["<b>Q3</b>"], ["<b>Q4</b>"]],
+    values: headers,
     align: ["left", "center"],
     line: {width: 1, color: '#506784'},
     fill: {color: '#119DFF'},
