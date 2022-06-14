@@ -3,6 +3,7 @@
     <h3 class="window-title">My Components</h3>
     <div class="row-container">
 
+      <router-link to="dashboard">
       <div class="existing-component">
         <img class="component-image" src="../../../assets/tyre-single.jpg">
         <div class="component-text">
@@ -13,6 +14,7 @@
         </p>
         </div>
       </div>
+      </router-link>
 
       <div class="existing-component insert-component">
         <span class="material-icons add-icon">add_box</span>

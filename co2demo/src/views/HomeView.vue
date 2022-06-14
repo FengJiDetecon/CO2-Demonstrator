@@ -18,11 +18,13 @@
 .page-wrapper {
   background: var(--white);
   padding: 40px;
+  width: 100%;
 }
 
 .content-container {
   height: 100%;
   max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
 }
 
