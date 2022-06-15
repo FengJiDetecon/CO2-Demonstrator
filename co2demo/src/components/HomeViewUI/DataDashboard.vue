@@ -53,7 +53,7 @@ export default {
 };
 
 
-    BarChart</script>
+</script>
 
 
 <style scoped>
