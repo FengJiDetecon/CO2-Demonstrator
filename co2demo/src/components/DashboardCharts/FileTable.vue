@@ -17,10 +17,14 @@ props: [
 
 mounted() {
 
-const valuesx = Object.values(this.co2data.file_dataFrame)
-const values  = Object.values(valuesx)
 var headers = Object.keys(this.co2data.file_dataFrame)
-console.log(values)
+var values = Object.values(this.co2data.file_dataFrame)
+var target = [[]]
+
+for (const prop in values ){
+  target[prop] = Object.values(values[prop])
+}
+
 
 var data = [{
   type: 'table',
@@ -28,19 +32,21 @@ var data = [{
     values: headers,
     align: ["left", "center"],
     line: {width: 1, color: '#506784'},
-    fill: {color: '#119DFF'},
-    font: {family: "Arial", size: 12, color: "white"}
+    fill: {color: '#063358'},
+    font: {family: "Arial", size: 14, color: "white"}
   },
   cells: {
-    values: values,
+    values: target,
     align: ["left", "center"],
     line: {color: "#506784", width: 1},
-	fill: {color: ['#25FEFD', 'white']},
-    font: {family: "Arial", size: 11, color: ["#506784"]}
+	fill: {color: ['#73BBF5', 'white']},
+    font: {family: "Arial", size: 12, color: ["#01070C"]}
   }
 }]
 
- var layout ='';
+ var layout = {
+  height: 600,
+ };
 
 Plotly.newPlot(this.$refs.fileTable, data, layout, {displaylogo: false, responsive:true});
 
