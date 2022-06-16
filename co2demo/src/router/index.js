@@ -38,9 +38,9 @@ const router = createRouter({
       component: DatasetsView,
       children: [
         {
-          path: "data-details",
+          path: "data-details/:id",
           component: DataDetails,
-          name: DataDetails,
+          params: true,
         },
         {
           path: "connected-datasets",
@@ -48,9 +48,9 @@ const router = createRouter({
           name: ConnectedDatasets,
         },
         {
-          path: "data-overview",
+          path: "data-overview/:id",
           component: DataOverview,
-          name: DataOverview,
+          params:true,
         },
 
       ],

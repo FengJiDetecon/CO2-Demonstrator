@@ -2,66 +2,39 @@
   <div class="">
     <h3 class="page-title">Connected Datasets</h3>
 
-    <div class="datasets-column">
-      <div  class="dataset-wrapper">
-        <div class="description-area">
-          <h3 class="dataset-title"></h3>
-          <p class="dataset-description">
-            <span class="bold">Owner: </span> ABC Tyre Manufacturing GmbH
-          </p>
-          <p class="dataset-description">
-            <span class="bold">Last update: </span>12.12.12 13:01:12
-          </p>
-        </div>
-
-        <div class="buttons-area">
-          <router-link class="link" to="data-overview"
-            ><div class="dataset-button">View Data</div></router-link
-          >
-          <router-link class="link" to="data-details"
-            ><div class="dataset-button">Details</div></router-link
-          >
-        </div>
-      </div>
-
-    </div>
+    <datasets-column v-if="datajson" :datasets="datajson"></datasets-column>
   </div>
 </template>
 
 <script>
-export default {
-  name: "ConnectedDatasets",
+import DatasetsColumn from "../DatasetsViewUI/DatasetsColumn.vue";
 
+export default {
+  components: {
+    DatasetsColumn,
+  },
+  name: "ConnectedDatasets",
   data() {
     return {
-      datajson: [],
-      datasets: [],
-      owners: [],
-      lastupdate: [],
-    }
+      datajson: null,
+    };
+  },
+  created() {
+    fetch("http://localhost:8000/datasets")
+      .then((data) => {
+        return data.json();
+      })
+      .then((datajson) => {
+        this.datajson = datajson.file_dataFrame;
+      });
   },
   methods: {
     backButton() {
       return this.$router.go(-1);
     },
   },
-  mounted() {
-
-    fetch('http://localhost:8000/connected-datasets')
-    .then(data => { return data.json()})
-    .then (datajson => {
-      console.log(datajson)
-      console.log(Object.values(datajson.file_dataFrame['Owner']))
-      for (const prop in datajson ){
-       this.datajson[prop] = datajson[prop]
-      }
-    })
-    console.log(Object.entries(this.datajson))
-
-  },
 };
 </script>
-
 
 <style scoped>
 .page-wrapper {
@@ -79,71 +52,5 @@ export default {
   font-size: 2rem;
   margin-top: 0;
   color: var(--background);
-}
-
-.datasets-column {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-}
-
-.dataset-wrapper {
-  background: var(--background);
-  width: 100%;
-  height: 100%;
-  max-height: 150px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px 3px var(--lightshadow);
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 70% 30%;
-  grid-template-areas: "description", "buttons";
-}
-
-.description-area {
-  grid-area: "description";
-  display: flex;
-  flex-direction: column;
-}
-
-.buttons-area {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  row-gap: 10px;
-}
-
-.dataset-button {
-  background: var(--brightblue);
-  padding: 7px;
-  width: 100%;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border-radius: 3px;
-  text-align: center;
-}
-
-.link {
-  text-decoration: none;
-  width: 100%;
-  max-width: 200px;
-}
-
-.dataset-button:hover {
-  cursor: pointer;
-  background: var(--white);
-  color: var(--background);
-  transition: all 0.2s linear;
-}
-
-.dataset-title {
-  font-size: 1rem;
-  margin-top: 0;
-}
-
-.dataset-description {
-  margin: 5px 0;
 }
 </style>

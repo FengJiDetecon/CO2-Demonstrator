@@ -1,6 +1,6 @@
 <template>
     <div class="component-wrapper">
-    <h3 class="graph-title">Merged Dataset</h3>
+    <h3 class="graph-title">Complete Dataset</h3>
     <div id="tester" ref="fileTable" class="table"></div>
 
 </div>

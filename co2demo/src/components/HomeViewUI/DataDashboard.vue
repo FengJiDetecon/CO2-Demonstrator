@@ -46,7 +46,6 @@ export default {
     fetch('http://localhost:8000/').then(data => {
       return data.json()
     }).then (datajson => {
-      console.log(datajson)
       this.datajson = datajson
     })
   },

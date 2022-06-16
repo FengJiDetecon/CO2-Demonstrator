@@ -1,44 +1,31 @@
 <template>
-  <div class="page-wrapper">
-    <div class="content-container">
-      
-      <router-view v-slot="{ Component, route }" id="page-content">
-          <transition :name="route.meta.transition" mode="out-in">
-            <component :is="Component"></component>
-          </transition>
-        </router-view>
-
+  <div class="dataset-wrapper">
+    <div class="description-area">
+      <h3 class="dataset-title">{{ info.ContentTitle[id] }}</h3>
+      <p class="dataset-description">
+        <span class="bold">Owner: </span> {{ info.Owner[id] }}
+      </p>
+      <p class="dataset-description">
+        <span class="bold">Last update: </span>{{ info.LastUpdate[id] }}
+      </p>
     </div>
-        <div class="spacer-bottom"></div>
+
+    <div class="buttons-area">
+      <router-link class="link" :to="'data-overview/' + this.id" >
+        <div class="dataset-button">View Data</div></router-link>
+      <router-link class="link" :to="'data-details/' + this.id">
+        <div class="dataset-button">Details</div></router-link>
+    </div>
   </div>
 </template>
 
+<script>
+export default {
+  props: ["info", "id"],
+};
+</script>
 
 <style scoped>
-.page-wrapper {
-  background: var(--white);
-  padding: 40px;
-}
-
-.content-container {
-  height: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.page-title {
-  font-size: 2rem;
-  margin-top: 0;
-  color: var(--background);
-}
-
-.datasets-column {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-}
-
 .dataset-wrapper {
   background: var(--background);
   width: 100%;
@@ -67,14 +54,19 @@
 }
 
 .dataset-button {
-  background: var(--libackground);
+  background: var(--brightblue);
   padding: 7px;
   width: 100%;
-  max-width: 200px;
   letter-spacing: 1px;
   text-transform: uppercase;
   border-radius: 3px;
   text-align: center;
+}
+
+.link {
+  text-decoration: none;
+  width: 100%;
+  max-width: 200px;
 }
 
 .dataset-button:hover {

@@ -6,39 +6,42 @@
       </div>
 
       <h3 class="details-title">File Details</h3>
-      <div class="details-list">
-        <p class="detail-row">
-          <span class="bold">Content title: </span>CO2 tracking Dataset
-        </p>
-        <p class="detail-row">
-          <span class="bold">Content description: </span>CO2 tracking
-        </p>
-        <p class="detail-row"><span class="bold">Owner: </span>Michelin</p>
-        <p class="detail-row"><span class="bold">Last Access: </span>Today</p>
-        <p class="detail-row"><span class="bold">Format: </span> CSV</p>
-        <p class="detail-row"><span class="bold">Last Update: </span> Today</p>
-        <p class="detail-row">
-          <span class="bold">Dataspace Title: </span>Michelin Dataspace
-        </p>
-        <p class="detail-row">
-          <span class="bold">Dataspace Description: </span>Michelin Dataspace
-        </p>
-        <p class="detail-row"><span class="bold">Dataspace ID: </span>123</p>
-        <p class="detail-row">
-          <span class="bold">Contact: </span>asdfjda@gmail.com
-        </p>
-      </div>
+      <data-details-rows v-if="datajson" :id="datasetid" :datadetails="datajson"></data-details-rows>
 
   </div>
 </template>
 
 <script>
+import DataDetailsRows from '../DatasetsViewUI/DataDetailsRows.vue'
+
 export default {
+  components: {
+    DataDetailsRows
+  },
   methods: {
-    backButton() {
+  backButton() {
       return this.$router.go(-1);
     },
   },
+  data() {
+    return {
+      datajson: null,
+      datasetid: null,
+    };
+  },
+  created(){
+    const datasetid = this.$route.params.id
+    this.datasetid = datasetid
+
+    fetch("http://localhost:8000/datasets")
+      .then((data) => {
+        return data.json();
+      })
+      .then((datajson) => {
+        this.datajson = datajson.file_dataFrame;
+      });  
+  },
+
 };
 </script>
 
@@ -78,7 +81,5 @@ export default {
     margin-top: 20px;
 }
 
-.details-list {
-  border-top: 1px solid var(--mainblue);
-}
+
 </style>
