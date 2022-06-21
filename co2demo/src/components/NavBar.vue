@@ -2,6 +2,7 @@
   <div class="navbar-container">
     <div>
       <router-link class="logo-router" to="/">
+      <img class="logo-detecon" src=".././assets/detecon.jpg" alt="">
       <h3 class="logo-text">SEE-O2 MONITOR</h3>
       </router-link>
     </div>
@@ -59,24 +60,38 @@ export default {
   justify-content: space-between;
   grid-template-areas: "logo tabs";
   align-items: center;
-  padding: 20px 30px;
+  padding: 0px 30px 0px 0px;
   box-shadow: 1px 1px 3px 5px rgba(0, 0, 0, 0.15);
   z-index: 300;
 }
 
 .logo {
-  width: 200px;
+  width: 300px;
   grid-area: 'logo';
+}
+
+.logo-detecon {
+  max-height: 40px;
+  object-fit: contain;
 }
 
 .logo-text {
   font-size: 1rem;
   margin: 0;
   letter-spacing: 2px;
+  color: var(--mainblue);
+  height: 100%;
 }
 
 .logo-router {
   text-decoration: none;
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  background-color: var(--pure-white);
+  padding: 10px 20px 10px 20px;
 }
 
 .tabs-desktop {
@@ -170,7 +185,7 @@ export default {
   .navbar-container {
     grid-template-areas: "logo tabmob";
     place-items: center;
-    padding: 0 20px;
+      padding: 0px 30px 0px 0px;
   }
 
   .hamburger-menu {
