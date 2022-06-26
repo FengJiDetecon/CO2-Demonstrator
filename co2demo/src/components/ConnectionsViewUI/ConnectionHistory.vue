@@ -6,30 +6,30 @@
 
         <div class="rows-container">
         <div class="history-row">
-          <p> <span class="bold">Datetime: </span>22.07.2 13:21:12</p>
-          <p><span class="bold">Dataspace: </span>Continental Manufacturing Bohn</p>
-          <p> <span class="bold">Number of transactions: </span>2</p>
+          <p> <span class="bold">Datetime: </span>22.06.23 13:21:12</p>
+          <p><span class="bold">Dataspace: </span>Detecon Tyres GmbH Dataspace</p>
+          <p> <span class="bold">Number of transactions: </span>1</p>
+          <p> <span class="bold">ID: </span>22213asdfa2233422s</p>
+        </div>
+
+        <div class="history-row">
+          <p> <span class="bold">Datetime: </span>22.06.23 13:21:12</p>
+          <p><span class="bold">Dataspace: </span>Detecon Group Tyre Components Dataspace</p>
+          <p> <span class="bold">Number of transactions: </span>1</p>
           <p> <span class="bold">ID: </span>22213asdfa2234s2s</p>
         </div>
 
         <div class="history-row">
-          <p> <span class="bold">Datetime: </span>22.07.2 13:21:12</p>
-          <p><span class="bold">Dataspace: </span>Continental Manufacturing Bohn</p>
-          <p> <span class="bold">Number of transactions: </span>2</p>
-          <p> <span class="bold">ID: </span>22213asdfa2234s2s</p>
-        </div>
-
-        <div class="history-row">
-          <p> <span class="bold">Datetime: </span>22.07.2 13:21:12</p>
-          <p><span class="bold">Dataspace: </span>Continental Manufacturing Bohn</p>
-          <p> <span class="bold">Number of transactions: </span>2</p>
+          <p> <span class="bold">Datetime: </span>22.06.23 09:12:07</p>
+          <p><span class="bold">Dataspace: </span>Detecon Group Tyre Components Dataspace</p>
+          <p> <span class="bold">Number of transactions: </span>1</p>
           <p> <span class="bold">ID: </span>22213asdfa2234s2s</p>
         </div>
 
        <div class="history-row">
-          <p> <span class="bold">Datetime: </span>22.07.2 13:21:12</p>
-          <p><span class="bold">Dataspace: </span>Continental Manufacturing Bohn</p>
-          <p> <span class="bold">Number of transactions: </span>2</p>
+          <p> <span class="bold">Datetime: </span>22.06.22 16:12:12</p>
+          <p><span class="bold">Dataspace: </span>Elastometers Associated Dataspace</p>
+          <p> <span class="bold">Number of transactions: </span>1</p>
           <p> <span class="bold">ID: </span>22213asdfa2234s2s</p>
         </div>
 

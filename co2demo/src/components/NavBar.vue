@@ -3,7 +3,7 @@
     <div>
       <router-link class="logo-router" to="/">
       <img class="logo-detecon" src=".././assets/detecon.jpg" alt="">
-      <h3 class="logo-text">SEE-O2 MONITOR</h3>
+      <h3 class="logo-text">CO2 MONITOR</h3>
       </router-link>
     </div>
     <div class="tabs-desktop">
