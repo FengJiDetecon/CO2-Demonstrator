@@ -1,18 +1,18 @@
 <template>
   <div class="navbar-container">
     <div>
-      <router-link class="logo-router" to="/">
+      <router-link class="logo-router" :to="{name:'co2-my-components'}">
       <h3 class="logo-text">SEE-O2 MONITOR</h3>
       </router-link>
     </div>
     <div class="tabs-desktop">
-      <router-link to="/" class="tab-link">
+      <router-link :to="{name:'my-components'}" class="tab-link">
         <div class="tab">Main Panel</div>
       </router-link>
-      <router-link to="/datasets" class="tab-link">
+      <router-link :to="{name:'datasets'}" class="tab-link">
         <li class="tab">Datasets</li>
       </router-link>
-      <router-link to="/connections" class="tab-link">
+      <router-link :to="{name:'connections'}" class="tab-link">
         <div class="tab">Connections</div>
       </router-link>
     </div>

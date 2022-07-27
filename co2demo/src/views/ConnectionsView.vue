@@ -4,11 +4,11 @@
       <h3 class="page-title">Data Spaces and Connections History</h3>
 
       <div class="window-links">
-        <router-link class="link" to="connections-history">
+        <router-link class="link" :to="{name:'connection-history'}">
           <div class="link-button">Connections History</div>
         </router-link>
 
-        <router-link class="link" to="dataspaces-overview">
+        <router-link class="link" :to="{name:'dataspaces-overview'}">
           <div class="link-button">Dataspaces Overview</div>
         </router-link>
       </div>

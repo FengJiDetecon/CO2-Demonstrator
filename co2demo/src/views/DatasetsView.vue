@@ -1,18 +1,43 @@
 <template>
   <div class="page-wrapper">
     <div class="content-container">
-      
-      <router-view v-slot="{ Component, route }" id="page-content">
-          <transition :name="route.meta.transition" mode="out-in">
-            <component :is="Component"></component>
-          </transition>
-        </router-view>
-
+        <DataDetails />
+        <ConnectedDatasets/>
+        <DataOverview/>
     </div>
         <div class="spacer-bottom"></div>
   </div>
 </template>
+<script>
+import DataDetails from '../components/DatasetsViewUI/DataDetails.vue';
+import ConnectedDatasets from '../components/DatasetsViewUI/ConnectedDatasets.vue';
+import DataOverview from '../components/DatasetsViewUI/DataOverview.vue';
 
+export default {
+  data() {
+    return {
+      //
+    };
+  },
+  components: {
+    DataDetails,
+    ConnectedDatasets,
+    DataOverview,
+  },
+  methods: {
+    //
+  },
+  computed: {
+    //
+  },
+  mounted() {
+    //
+  },
+  beforeDestroy() {
+    //
+  },
+};
+</script>
 <style scoped>
 .page-wrapper {
   background: var(--white);

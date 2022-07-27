@@ -5,20 +5,20 @@
       rel="stylesheet"
     />
     <NavBar class="nav-bar" id="navBar"></NavBar>
-    <router-view v-slot="{Component, route}" id="page-content">
-    <transition :name="route.meta.transition" mode="out-in">
-      <component :is="Component"></component>
-    </transition>
+    <router-view v-slot="{Component, route}" id="co2-page-content">
+      <transition :name="route.meta.transition" mode="out-in">
+        <component :is="Component"></component>
+      </transition>
     </router-view>
   </div>
 </template>
 
 <script>
-import NavBar from "./components/NavBar.vue";
+import NavBar from "../components/NavBar.vue";
 // import Footer from "./components/Footer.vue";
 
 export default {
-  name: "App",
+  name: "co2-app",
   components: {
     NavBar,
     // Footer,
@@ -26,12 +26,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-
+<style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 :root {
   --mainblue: #063358;
-  --brightblue:#0E73C6;
+  --brightblue: #0E73C6;
   --darkblue: #063358;
   --darkbackground: #01070C;
   --background: #042037;
@@ -41,15 +40,11 @@ export default {
   --darkgray: #292929;
   --white: #ecf7ff;
   --error: #e27373;
-
   --lightshadow: #47474765;
-
   --screen-size: calc(100vh - 60px);
   --nav-bar-height: 60px;
-
   font-size: 16px;
 }
-
 * {
   box-sizing: border-box;
   color: var(--white);
@@ -84,7 +79,7 @@ export default {
 body,
 html {
   margin: 0;
-  height: 100vh;
+  height: 50%;
   width: 100%;
 }
 
@@ -93,7 +88,7 @@ body {
 }
 
 h1 {
-  font-size: 6.5rem;
+  font-size: 3.5rem;
   font-weight: lighter;
   letter-spacing: -1.5px;
 }
@@ -247,5 +242,13 @@ textarea {
 
 }
 
+.vue-enter-active,
+.vue-leave-active {
+  transition:opacity 1.5s;
+}
 
+.vue-enter-from,
+.vue-leave-to {
+  opacity: 0;
+}
 </style>

@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import CO2DemoView from '../views/CO2DemoView.vue'
 import HomeView from '../views/HomeView.vue'
 import DatasetsView from '../views/DatasetsView.vue'
 import ConnectionsView from '../views/ConnectionsView.vue'
@@ -13,13 +14,64 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView,
-      redirect: "/mycomponents",
+      path: '/co2-demonstrator',
+      name: 'co2-home',
+      component: CO2DemoView,
       children: [
         {
-          path: "mycomponents",
+          path: "my-components",
+          name: "my-components",
+          component: MyComponents,
+        },
+        {
+          path: "datasets",
+          name: "datasets",
+          component: DatasetsView,
+          children: [
+            {
+              path: "data-details",
+              name: "data-details",
+              component: DataDetails,
+            },
+            {
+              path: "connected-datasets",
+              name: "connected-datasets",
+              component: ConnectedDatasets,
+            },
+            {
+              path: "data-overview",
+              name: "data-overview",
+              component: DataOverview,
+            }
+          ]
+        },
+        {
+          path: "connections",
+          name: "connections",
+          component: ConnectionsView,
+          redirect: {name: "connection-history"},
+          children: [
+            {
+              path: "connection-history",
+              name: "connection-history",
+              component: ConnectionHistory,
+            },
+            {
+              path: "dataspaces-overview",
+              name: "dataspaces-overview",
+              component: DataspacesOverview,
+            }
+          ]
+        },
+      ]
+    },
+    {
+      path: '/co2-demonstrator/home',
+      name: 'co2-my-components',
+      component: HomeView,
+      children: [
+        {
+          path: "/co2-demostrator/mycomponents",
           component: MyComponents,
           name: MyComponents,
         },
@@ -27,7 +79,7 @@ const router = createRouter({
     },
     {
       path: '/datasets',
-      name: 'datasets',
+      name: 'co2-datasets',
       redirect: "/datasets/connected-datasets",
       component: DatasetsView,
       children: [
@@ -45,25 +97,6 @@ const router = createRouter({
           path: "data-overview",
           component: DataOverview,
           name: DataOverview,
-        },
-
-      ],
-    },
-    {
-      path: '/connections',
-      name: 'connections',
-      component: ConnectionsView,
-      redirect: "/connections/connections-history",
-      children: [
-        {
-          path: "connections-history",
-          component: ConnectionHistory,
-          name: ConnectionHistory,
-        },
-        {
-          path: "dataspaces-overview",
-          component: DataspacesOverview,
-          name: DataspacesOverview,
         },
 
       ],
