@@ -6,7 +6,7 @@
     </div>
     <ul class="navigation" v-show="!mobile"> 
       <li class="nav-tab">
-        <router-link class="link" to="/">Home</router-link>
+        <router-link class="link" :to="{name: 'home'}">Home</router-link>
       </li>
       <li class="nav-tab">
         <router-link :to="{name:'co2-home'}" class="link">CO2 Demostrator</router-link>

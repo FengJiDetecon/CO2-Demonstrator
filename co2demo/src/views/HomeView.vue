@@ -1,38 +1,56 @@
 <template>
-  <main class="page-wrapper">
-    <div class="content-container">
-      <h3 class="dashboard-title">CO2 Footprint Tracking Dashboard</h3>
-      <div class="dashboard-view">
-        <router-view v-slot="{ Component, route }" id="page-content">
-          <transition :name="route.meta.transition" mode="out-in">
-            <component :is="Component"></component>
-          </transition>
-        </router-view>
-      </div>
-    </div>
-        <div class="spacer-bottom"></div>
-  </main>
+  <div class="homeSlied">
+    <Carousel class="carousel" v-slot="{ currentSlide }">
+      <Slide v-for="(slide, index) in carouselSliders" :key="index">
+        <div class="slide-info" v-show="currentSlide === index + 1">
+          <img :src="getImageUrl(`${slide}.jpg`)" alt="" class="sc">
+        </div>
+      </Slide>
+    </Carousel>
+  </div>
 </template>
 
-<style scoped>
-.page-wrapper {
-  background: var(--white);
-  padding: 40px;
+<script>
+import Carousel from "../components/slider/Carousel.vue";
+import Slide from "../components/slider/Slide.vue";
+export default {
+  name: "homeslide",
+  components: {
+    Carousel,
+    Slide,
+  },
+  setup(){
+    const carouselSliders = ['bg-1', 'bg-2', 'bg-3', 'bg-4'];
+    const getImageUrl = (name) => {
+        return new URL(`../assets/${name}`, import.meta.url).href
+    };
+    return {
+      carouselSliders,
+      getImageUrl,
+    };
+  }
 }
+</script>
 
-.content-container {
-  height: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+<style lang="scss" scoped>
+.carousel {
+  position: relative;
+  max-height: 50vh;
+  height: 50vh;
+
+  .slide-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+    }
+  } 
 }
-
-.dashboard-title {
-  margin: 0;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: var(--mainblue);
-}
-
-
 </style>
