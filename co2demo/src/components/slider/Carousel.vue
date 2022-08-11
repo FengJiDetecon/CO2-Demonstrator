@@ -104,8 +104,8 @@ export default {
         border-radius: 50%;
         background-color: #6347c7;
         color: #fff;
-        height: 60px;
-        width: 60px;
+        height: 2rem;
+        width: 2rem;
     }
 }
 .pagination {
@@ -120,8 +120,8 @@ export default {
 
     span {
         cursor: pointer;
-        width: 40px;
-        height: 40px;  
+        width: 1.5rem;
+        height: 1.5rem; 
         border-radius: 50%;
         background-color: white;
     }

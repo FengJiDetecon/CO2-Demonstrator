@@ -32,6 +32,8 @@ export default {
   --screen-size: calc(100vh - 60px);
   --nav-bar-height: 60px;
   font-size: 16px;
+  --c-btn-blue: #006fff;
+
 }
 * {
   box-sizing: border-box;
@@ -39,5 +41,10 @@ export default {
 }
 body{
     margin: 0;
+  .nav-bar {
+    position: relative;
+    top: 0;
+  }
+
 }
 </style>

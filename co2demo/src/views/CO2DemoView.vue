@@ -44,6 +44,7 @@ export default {
   --screen-size: calc(100vh - 60px);
   --nav-bar-height: 60px;
   font-size: 16px;
+  -webkit-sticky: sticky;
 }
 * {
   box-sizing: border-box;
